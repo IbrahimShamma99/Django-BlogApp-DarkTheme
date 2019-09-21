@@ -1,0 +1,8 @@
+python3 manage.py createsuperuser To create authenticated user to the admin 
+if it is the first time try 
+python3 manage.py migrate 
+then createsuperuser
+
+python3 manage.py runserver 
+
+python3 manage.py makemigrations
