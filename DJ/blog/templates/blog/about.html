@@ -1,0 +1,6 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	{%for Author in Auths %}
+	<h1> {{Author.Name}}</h1> 
+	{%endfor%}
+{% endblock %}
