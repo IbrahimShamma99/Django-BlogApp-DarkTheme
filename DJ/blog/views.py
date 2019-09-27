@@ -1,33 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import timedelta
+from .models import Post
 
-date = timedelta(microseconds=-1)
+# date = timedelta(microseconds=-1)
 
-posts = [
-{
-	'author':'Ibrahim',
-	'title':'first post',
-	'content':'hello there I am using django',
-	'date_posted':"22nd feb 2019"
-},
-{
-	'author':'Judy',
-	'title':'second post',
-	'content':'hello there I am using django',
-	'date_posted':'20th sep 2019'
-}
-]
+# posts = [
+# {
+# 	'author':'Ibrahim',
+# 	'title':'first post',
+# 	'content':'hello there I am using django',
+# 	'date_posted':"22nd feb 2019"
+# },
+# {
+# 	'author':'Judy',
+# 	'title':'second post',
+# 	'content':'hello there I am using django',
+# 	'date_posted':'20th sep 2019'
+# }
+# ]
 
-Authors = [
-{'Name':'Ibrahim'},
-{'Name':'Judy'}
-]
+# Authors = [
+# {'Name':'Ibrahim'},
+# {'Name':'Judy'}
+# ]
 
 
 def home(request):
 	context = {
-	'posts':posts
+	'posts':Post.objects.all()
 	}
 	return render(request,'blog/home.html',context)
 
@@ -36,5 +36,5 @@ def home(request):
 
 
 def about(request):
-	context = {'Auths':Authors}
-	return render(request,'blog/about.html',context)	
+	#context = {'Auths':Authors}
+	return render(request,'blog/about.html')	

@@ -13,7 +13,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #FF0000;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -25,7 +25,7 @@ body {
   }
   
   .site-header .navbar-nav .nav-link.active {
-    font-weight: 500;
+    font-weight: 1000;
   }
   
   .content-section {
@@ -41,7 +41,7 @@ body {
   }
   
   a.article-title:hover {
-    color: #428bca;
+    color: #FF0000;
     text-decoration: none;
   }
   

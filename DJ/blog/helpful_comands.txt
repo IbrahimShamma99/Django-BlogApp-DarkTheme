@@ -6,3 +6,53 @@ then createsuperuser
 python3 manage.py runserver 
 
 python3 manage.py makemigrations
+
+orm => object relation mapper 
+
+python3 manage.py sqlmigrate blog 0001 then migrate 
+
+(models)
+{
+python3 manage.py shell 
+from django.contrib.auth.models import User # user model
+user = User.objects.filter(id , username).first()
+post = Post(Author , Author_id , title , content )
+#To be posted
+post.save()
+Post.objects.all() # to see the post
+}
+(Registeration)
+{
+    python3 manage.py startapp users
+    add to the main project settings file the ('users.apps.UsersConfig')
+    cvrf_token is (Cross Site Request Forgery protection) 
+    <Form is well used>
+    use messages from contrib
+    "pip3 install django-crispy-forms" 
+    to Tell django about crispy-forms by going to DJ/settings/installed_apps
+    and add 'crispy_forms'
+    add this variable at the end of the settings
+    CRISPY_TEMPLATE_PACK = 'bootstrap4'
+    you can got to the doc and change it as you like
+    add to the register.html {% load crispy_forms_tags %}
+}
+
+(Auth)
+{
+    Function => template => urls
+    
+    Profile is auth when
+    LOGIN_URL = "login" into settings.py 
+    &&
+    set @login_required above Profile func
+    
+}
+
+(Profile)
+{
+    model=> migrate => register (from admin.py) {admin.site.register(Profile)} Admin page where you find changes
+
+    user = User.objects.filter(username='ibrahim').first()
+    user.profile.image => for image
+
+}
