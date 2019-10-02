@@ -11,7 +11,7 @@ orm => object relation mapper
 
 python3 manage.py sqlmigrate blog 0001 then migrate 
 
-(models)
+(Blog Models)
 {
 python3 manage.py shell 
 from django.contrib.auth.models import User # user model
@@ -23,7 +23,7 @@ Post.objects.all() # to see the post
 }
 (Registeration)
 {
-    python3 manage.py startapp users
+    python3 manage.py startapp users (creates app )
     add to the main project settings file the ('users.apps.UsersConfig')
     cvrf_token is (Cross Site Request Forgery protection) 
     <Form is well used>
@@ -53,6 +53,14 @@ Post.objects.all() # to see the post
     model=> migrate => register (from admin.py) {admin.site.register(Profile)} Admin page where you find changes
 
     user = User.objects.filter(username='ibrahim').first()
-    user.profile.image => for image
+    user.profile.image.url => for image
+    copy the following to the urls in DJ
+    if settings.DEBUG:
+        urlpatterns+=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT) 
+    to display image 
 
+    enctype="multipart/form-data" is to save the image in the background
+
+    "instance=request.user" to get User
+    "instance=request.user.profile" to get profile 
 }
