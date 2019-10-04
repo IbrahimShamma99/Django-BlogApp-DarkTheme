@@ -1,5 +1,6 @@
 {%extends "blog/base.html" %}
 {% block content %}
+ <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }} Posts)  </h1>
 {% for post in posts %}
 <article class="media content-section">
   <img class="rounded-circle article-img" src={{post.author.profile.image.url}}>
@@ -9,7 +10,7 @@
     #link { color: #FF0000; } /* CSS link color */
     .link:hover { color: #00FF00; } /* CSS link hover (green) */
   </style>
-      <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+      <a class="mr-2" href= "{% url 'user-posts' post.author.username %}" >{{ post.author }}</a>
       <small class="text-muted">{{ post.date |date:"Y/F/d" }}</small>
     </div>
     <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
