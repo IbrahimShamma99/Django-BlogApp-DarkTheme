@@ -5,7 +5,6 @@
 <head>
 	<meta charset="utf-8"> 	
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
@@ -14,17 +13,17 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
 		{%if title %}
-	<title> IbraBlog - {{ title }}</title>
+	<title> TheTechLead - {{ title }}</title>
 	{% else %}
-		<title> IbraBlog</title>
+		<title> TheTechLead</title>
 	{% endif %}
 
 </head>
 <body><header class="site-header">
   <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
     <div class="container">
-      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}"	>IbraBlog</a>
-      
+      <img src='/media/Pics/favicon.ico' alt="logo"></img>
+      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}"	>TheTechLead</a>
 	  <button class="navbar-toggler" type="button" 
 	  data-toggle="collapse" 
 	  data-target="#navbarToggle" 
@@ -33,6 +32,8 @@
 	  aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
+
+
       <div class="collapse navbar-collapse" id="navbarToggle">
         <div class="navbar-nav mr-auto">
           <a class="nav-item nav-link" href= "{% url 'blog-home' %}" >Home</a>
@@ -66,19 +67,22 @@
     {% endif %}
       {% block content %}{% endblock %}
     </div>
+    
     <div class="col-md-4">
       <div class="content-section">
         <h3>Our Sidebar</h3>
-        <p class='text-muted'>You can put any information here you'd like.
+        <p title="Made by the  greatest of all time !" class='text-muted'>You can put any information here you'd like.
           <ul class="list-group">
-            <li class="list-group-item list-group-item-light">Latest Posts</li>
-            <li class="list-group-item list-group-item-light">Announcements</li>
-            <li class="list-group-item list-group-item-light">Calendars</li>
-            <li class="list-group-item list-group-item-light">etc</li>
+            <li class="list-group-item list-group-item-dark">Latest Posts</li>
+            <li class="list-group-item list-group-item-dark">Announcements</li>
+            <li class="list-group-item list-group-item-dark">Calendars</li>
+            <li class="list-group-item list-group-item-dark">etc</li>
           </ul>
         </p>
       </div>
     </div>
+        
+
   </div>
 </main>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" align = 'center'></script>

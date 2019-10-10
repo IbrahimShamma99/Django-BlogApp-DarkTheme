@@ -1,5 +1,6 @@
 from django.shortcuts import render , get_object_or_404
-from .models import Post
+from .models import *
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins	import LoginRequiredMixin , UserPassesTestMixin
 from django.views.generic import (
@@ -7,9 +8,8 @@ from django.views.generic import (
 	DetailView,
 	CreateView,
  	UpdateView,
-  	DeleteView
-   )
-
+  	DeleteView)
+from .forms import *
 
 def home(request):
 	context = {
@@ -37,10 +37,9 @@ class UserPostListView(ListView):
     def getqueryset(self):
         user = get_object_or_404(User ,username=self.kwargs.get("username"))
         return Post.objects.filter(author=user).order_by("-date")
-        
 
 class PostDetailView(DetailView):
-    model = Post 
+	model = Post()
 
 class PostCreateView(LoginRequiredMixin,CreateView):
 	model =Post
@@ -70,9 +69,27 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 		if self.request.user == post.author:
 			return True
 		return False
+ 
+# def PostViews(request):
+#     posts = Post.object.all()
+#     return render(request,'blog/home.html')	
 
-  
-  
+
+# def something(request):
+#     model = Post()
+#     comments = model.comments.filter(Active=True)
+#     if(request.method == 'post'):
+#      	comment_form = CommentForm
+# 		if comment_form.is_valid():
+# 			Parent_obj = None
+# 			try:
+# 				Parent_id = int(request.POST.get("Parent_id"))
+# 			except :
+# 				Parent_id = None
+# 			if Parent_id :
+# 				Parent_obj = Comment.object.get(id=Parent_id)
+
+
 #<app>/<models><viewtype>.html
 def about(request):
 	return render(request,'blog/about.html')	
