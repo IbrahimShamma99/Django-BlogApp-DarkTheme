@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path , include
 from blog import views
 from .views import ( 
     PostListView , 
@@ -16,5 +16,5 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(),name='post-delete'),
     path('post/new/', PostCreateView.as_view(),name='post-create'),
     path('about/', views.about,name='blog-about'),
-    
+    path(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]

@@ -1,14 +1,10 @@
-from .models import *
+from .models import Post
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, HTML
 from crispy_forms.bootstrap import FormActions
 from .models import Post
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model =Comment
-        fields = ['Name','Date','Email','Body']
 
 
 # class PostForm(forms.ModelForm):
