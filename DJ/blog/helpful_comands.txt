@@ -11,6 +11,7 @@ orm => object relation mapper
 
 python3 manage.py sqlmigrate blog 0001 then migrate 
 
+
 (Blog Models)
 {
 python3 manage.py shell 

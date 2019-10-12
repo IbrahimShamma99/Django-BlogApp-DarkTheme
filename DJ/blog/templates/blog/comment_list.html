@@ -1,0 +1,17 @@
+{%extends "blog/base.html" %}
+{% block content %}
+ <h1 class="mb-3">Comments by {{ view.kwargs.username }} </h1>
+{% for comment in comments %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src={{comment.author.profile.image.url}}>
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href= "{% url 'user-posts' comment.author.username %}" >{{ comment.author }}</a>
+      <small class="text-muted">{{ comment.date |date:"Y/F/d" }}</small>
+    </div>
+    <h2><a class="article-title" href="{% url 'post-detail' comment.id %}">{{ comment.title }}</a></h2>
+    <p class="article-content">{{ comment.content }}</p>
+  </div>
+</article>
+{% endfor %}
+{% endblock %}

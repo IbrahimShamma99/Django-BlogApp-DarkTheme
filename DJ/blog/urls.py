@@ -6,7 +6,10 @@ from .views import (
     PostCreateView ,
     PostUpdateView,
     PostDeleteView,
-    UserPostListView)
+    UserPostListView,
+    CommentCreateView,
+    CommentListView,
+    CommentDetailView)
 
 urlpatterns = [
     path('', PostListView.as_view(),name='blog-home'),
@@ -16,5 +19,10 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(),name='post-delete'),
     path('post/new/', PostCreateView.as_view(),name='post-create'),
     path('about/', views.about,name='blog-about'),
-    path(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
+    
+    path('post/<int:pk>/comment/new', CommentCreateView.as_view(),name='comments-create'),
+    path('post/<int:pk>/comments/', CommentListView.as_view(),name='blog-comments'),
+    path('post/<int:pk>/comment/<int:pkc>/', CommentDetailView.as_view(),name='comment-detail'),
+
+
 ]

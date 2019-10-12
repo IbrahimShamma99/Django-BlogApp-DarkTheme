@@ -13,6 +13,8 @@
     <p class="article-content">{{ post.content }}</p>
   </div>
 </article>
+<a href={% url 'comments-create' post.id %}><button class="btn btn-outline-info" type="submit">Comment</button></a>
+
 {% endfor %}
   {% if is_paginated %}
     {% if page_obj.has_previous %}
