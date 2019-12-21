@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class Post(models.Model):
-    title = models.CharField(max_length=100) #CharField used for names restricted strings
-    content = models.TextField() #unrestricted string there is "choices" parameter used for choose your own charfields
-    date = models.DateTimeField(default=timezone.now())
+    title = models.CharField(default=' ',max_length=100) #CharField used for names restricted strings
+    content = models.TextField(default=' ') #unrestricted string there is "choices" parameter used for choose your own charfields
+    date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Comment(models.Model):
     # Name = models.CharField(max_length=100)
     # Email = models.EmailField(max_length=100)
     content = models.TextField()
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(default=timezone.now)
     # Active = models.BooleanField(default=True)
     # Parent = models.ForeignKey("self", on_delete=models.CASCADE , null=True,blank=True,related_name="replies")
     class Meta:

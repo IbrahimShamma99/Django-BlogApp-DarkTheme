@@ -65,3 +65,32 @@ Post.objects.all() # to see the post
     "instance=request.user" to get User
     "instance=request.user.profile" to get profile 
 }
+
+
+(Deploy {HEROKU}
+AWEsome!@#123
+heroku login
+ssh-keygen -t rsa -b 4096 -C "i.abushammah@gmail.com"
+heroku keys:add
+heroku create "deploy name"
+
+add to package.json this
+  "scripts": {
+    "start":"node src/app.js"
+
+	ls -a -l ../../.ssh {To check your ssh connections}
+  },
+
+
+
+when you finish editing push to github then 
+
+git push heroku master
+
+
+
+
+
+)
+
+
